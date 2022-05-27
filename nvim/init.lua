@@ -39,7 +39,7 @@ opt.ttyfast = true
 opt.laststatus = 3
 opt.scrolloff = 7
 opt.wildmenu = true
-opt.showmode = true
+opt.showmode = false
 opt.wildmode = {"list", "longest"}
 opt.showmatch = true
 opt.mat = 2
@@ -72,6 +72,7 @@ opt.listchars = {
 cmd [[filetype plugin indent on]]
 cmd [[colorscheme everforest]]
 
+require("statusline")
 require("plugins")
 
 cmd [[syntax on]]
