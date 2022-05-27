@@ -31,14 +31,6 @@ return require('packer').startup(function(use)
 		'OmniSharp/omnisharp-vim'
 	}
 
-"	use {
-		'junegunn/fzf.vim',
-		requires = {{
-			'junegunn/fzf',
-			run = function() vim.fn['fzf#install']() end
-		}}
-	}
-"
 	if packer_bootstrap then
 		require('packer').sync()
 	end
