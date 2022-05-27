@@ -16,6 +16,29 @@ return require('packer').startup(function(use)
 		config = require('setup.nvimtree')
 	}
 
+	use {
+		'nvim-telescope/telescope-file-browser.nvim',
+		requires = {{
+			'nvim-telescope/telescope.nvim',
+			requires = {{
+				'nvim-lua/plenary.nvim'
+			}}
+		}},
+		config = require('setup.telescope')
+	}
+
+	use {
+		'OmniSharp/omnisharp-vim'
+	}
+
+"	use {
+		'junegunn/fzf.vim',
+		requires = {{
+			'junegunn/fzf',
+			run = function() vim.fn['fzf#install']() end
+		}}
+	}
+"
 	if packer_bootstrap then
 		require('packer').sync()
 	end

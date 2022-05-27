@@ -42,4 +42,4 @@ nvimtree.setup {
 }
 
 map('-', '<CMD>lua NvimTreeConfig.toggle_replace()<CR>') 
-map('<leader>t', '<CMD>NvimTreeToggle<CR>')
+map('<leader>nt', '<CMD>NvimTreeToggle<CR>')

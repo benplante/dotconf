@@ -60,8 +60,9 @@ opt.listchars = {
     precedes = "❮"
 }
 
+cmd [[filetype plugin indent on]]
+cmd [[colorscheme everforest]]
+
 require("plugins")
 
 cmd [[syntax on]]
-cmd [[filetype plugin indent on]]
-cmd [[colorscheme everforest]]
