@@ -76,6 +76,5 @@ cmd [[colorscheme everforest]]
 
 require("bindings")
 require("statusline")
-require("plugins")
 
 cmd [[syntax on]]
