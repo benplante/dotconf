@@ -33,10 +33,12 @@ return require('packer').startup(function(use)
         cmd = {'Telescope*'}
 	}
 
---	use {
---		'neovim/nvim-lspconfig',
---		config = function() require('setup.lsp') end
---	}
+	use {
+        disable = true,
+		'neovim/nvim-lspconfig',
+		config = function() require('setup.lsp') end
+	}
+    
 	use {
 		'OmniSharp/omnisharp-vim',
         ft = {'sln','csproj','cs'},
