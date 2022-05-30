@@ -11,24 +11,39 @@ return require('packer').startup(function(use)
 	use {
 		'kyazdani42/nvim-tree.lua',
 		requires = {
-			'kyazdani42/nvim-web-devicons'
+			'kyazdani42/nvim-web-devicons',
+            config = function() require("nvim-web-devicons") end
+
 		},
-		config = require('setup.nvimtree')
+		config = function() require('setup.nvimtree') end
 	}
 
 	use {
-		'nvim-telescope/telescope-file-browser.nvim',
-		requires = {{
-			'nvim-telescope/telescope.nvim',
-			requires = {{
-				'nvim-lua/plenary.nvim'
-			}}
-		}},
-		config = require('setup.telescope')
+		'nvim-telescope/telescope.nvim',
+		requires = {
+			{'nvim-lua/plenary.nvim'},
+			{
+				'nvim-treesitter/nvim-treesitter',
+                run = ':TSUpdate'
+			},
+            { 'nvim-telescope/telescope-file-browser.nvim' },
+            { 'nvim-telescope/telescope-fzy-native.nvim' },
+		},
+		config = function() require('setup.telescope') end,
+        cmd = {'Telescope*'}
 	}
 
+--	use {
+--		'neovim/nvim-lspconfig',
+--		config = function() require('setup.lsp') end
+--	}
 	use {
-		'OmniSharp/omnisharp-vim'
+		'OmniSharp/omnisharp-vim',
+        ft = {'sln','csproj','cs'},
+		config = function()
+			vim.g.OmniSharp_translate_cygwin_wsl = 1
+			vim.g.OmniSharp_server_use_net6 = 1
+		end
 	}
 
 	if packer_bootstrap then

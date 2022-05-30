@@ -6,6 +6,7 @@ local o = vim.o
 
 -- Mispellings
 cmd [[abbr cosnt const]]
+cmd [[abbr pubic public]]
 
 opt.backup = false
 opt.writebackup = false
@@ -50,6 +51,7 @@ opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.shiftround = true
+opt.expandtab = true
 
 opt.list = true
 opt.listchars = {
@@ -72,6 +74,7 @@ opt.listchars = {
 cmd [[filetype plugin indent on]]
 cmd [[colorscheme everforest]]
 
+require("bindings")
 require("statusline")
 require("plugins")
 

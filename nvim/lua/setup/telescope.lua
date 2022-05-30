@@ -1,13 +1,14 @@
 local telescope = require("telescope")
 
 telescope.load_extension("file_browser")
+telescope.load_extension("fzy_native")
 
-local function map (lhs, rhs) 
-	vim.api.nvim_set_keymap('n', lhs, rhs, { noremap = true, silent = true })
-end
+telescope.setup {
+	extensions = {
+		fzy_native = {
+			override_generic_sorter = false,
+			override_file_sorter = true,
+		}
+	}
+}
 
-map('<leader>ff', '<CMD>Telescope find_files<CR>')
-map('<leader>fg', '<CMD>Telescope live_grep<CR>')
-map('<leader>fb', '<CMD>Telescope buffers<CR>')
-map('<leader>fh', '<CMD>Telescope help_tags<CR>')
-map('<leader>fd', '<CMD>Telescope file_browser<CR>')
