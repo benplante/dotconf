@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/bplante/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/bplante/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/bplante/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/bplante/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/bplante/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/benpl/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/benpl/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/benpl/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/benpl/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/benpl/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -70,56 +70,56 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["nvim-tree.lua"] = {
-    config = { "\27LJ\2\2.\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\19setup.nvimtree\frequire\0" },
+    config = { "\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19setup.nvimtree\frequire\0" },
     loaded = true,
-    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    path = "/Users/benpl/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/Users/benpl/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    path = "/Users/benpl/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["omnisharp-vim"] = {
-    config = { "\27LJ\2\2j\0\0\2\0\4\0\t6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0K\0\1\0\30OmniSharp_server_use_net6#OmniSharp_translate_cygwin_wsl\6g\bvim\0" },
+    config = { "\27LJ\2\nj\0\0\2\0\4\0\t6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0K\0\1\0\30OmniSharp_server_use_net6#OmniSharp_translate_cygwin_wsl\6g\bvim\0" },
     loaded = false,
     needs_bufread = true,
     only_cond = false,
-    path = "/home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim",
+    path = "/Users/benpl/.local/share/nvim/site/pack/packer/opt/omnisharp-vim",
     url = "https://github.com/OmniSharp/omnisharp-vim"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/Users/benpl/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    path = "/Users/benpl/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
-    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
+    path = "/Users/benpl/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
     url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
   ["telescope-fzy-native.nvim"] = {
     loaded = true,
-    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim",
+    path = "/Users/benpl/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzy-native.nvim"
   },
   ["telescope.nvim"] = {
     commands = { "Telescope*" },
-    config = { "\27LJ\2\2/\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\20setup.telescope\frequire\0" },
+    config = { "\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20setup.telescope\frequire\0" },
     loaded = false,
     needs_bufread = true,
     only_cond = false,
-    path = "/home/bplante/.local/share/nvim/site/pack/packer/opt/telescope.nvim",
+    path = "/Users/benpl/.local/share/nvim/site/pack/packer/opt/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   }
 }
@@ -127,7 +127,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\2.\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\19setup.nvimtree\frequire\0", "config", "nvim-tree.lua")
+try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19setup.nvimtree\frequire\0", "config", "nvim-tree.lua")
 time([[Config for nvim-tree.lua]], false)
 
 -- Command lazy-loads
@@ -139,21 +139,21 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType cs ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "cs" }, _G.packer_plugins)]]
 vim.cmd [[au FileType csproj ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "csproj" }, _G.packer_plugins)]]
 vim.cmd [[au FileType sln ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "sln" }, _G.packer_plugins)]]
-vim.cmd [[au FileType cs ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "cs" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
-time([[Sourcing ftdetect script at: /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/cake.vim]], true)
-vim.cmd [[source /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/cake.vim]]
-time([[Sourcing ftdetect script at: /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/cake.vim]], false)
-time([[Sourcing ftdetect script at: /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/csx.vim]], true)
-vim.cmd [[source /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/csx.vim]]
-time([[Sourcing ftdetect script at: /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/csx.vim]], false)
-time([[Sourcing ftdetect script at: /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/omnisharplog.vim]], true)
-vim.cmd [[source /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/omnisharplog.vim]]
-time([[Sourcing ftdetect script at: /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/omnisharplog.vim]], false)
+time([[Sourcing ftdetect script at: /Users/benpl/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/cake.vim]], true)
+vim.cmd [[source /Users/benpl/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/cake.vim]]
+time([[Sourcing ftdetect script at: /Users/benpl/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/cake.vim]], false)
+time([[Sourcing ftdetect script at: /Users/benpl/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/csx.vim]], true)
+vim.cmd [[source /Users/benpl/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/csx.vim]]
+time([[Sourcing ftdetect script at: /Users/benpl/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/csx.vim]], false)
+time([[Sourcing ftdetect script at: /Users/benpl/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/omnisharplog.vim]], true)
+vim.cmd [[source /Users/benpl/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/omnisharplog.vim]]
+time([[Sourcing ftdetect script at: /Users/benpl/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/omnisharplog.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 

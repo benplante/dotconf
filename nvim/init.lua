@@ -3,6 +3,8 @@ local opt = vim.opt
 local cmd = vim.cmd
 local g = vim.g
 local o = vim.o
+local wo = vim.wo
+local bo = vim.bo
 
 -- Mispellings
 cmd [[abbr cosnt const]]
@@ -17,6 +19,11 @@ opt.backupdir = {
     "~/.tmp"
 }
 
+opt.undodir = vim.fn.stdpath('data') .. '/undodir'
+opt.undofile = true
+opt.hidden = true
+opt.completeopt = 'menuone,noinsert,noselect'
+
 opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
@@ -29,6 +36,7 @@ opt.visualbell = true
 opt.timeoutlen = 1000
 
 o.termguicolors = true
+o.syntax = 'on'
 opt.number = true
 opt.relativenumber = true
 opt.wrap = true
@@ -46,12 +54,12 @@ opt.showmatch = true
 opt.mat = 2
 opt.signcolumn = "yes"
 
+o.expandtab = true
 opt.smarttab = true
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
 opt.shiftround = true
-opt.expandtab = true
 
 opt.list = true
 opt.listchars = {
@@ -77,4 +85,3 @@ cmd [[colorscheme everforest]]
 require("bindings")
 require("statusline")
 
-cmd [[syntax on]]
