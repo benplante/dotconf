@@ -16,7 +16,7 @@ opt.swapfile = false
 opt.updatecount = 0
 
 opt.backupdir = {
-    "~/.tmp"
+  "~/.tmp"
 }
 
 opt.undodir = vim.fn.stdpath('data') .. '/undodir'
@@ -63,11 +63,11 @@ opt.shiftround = true
 
 opt.list = true
 opt.listchars = {
-    tab = "→ ",
-    eol = "¬",
-    trail = "⋅",
-    extends = "❯",
-    precedes = "❮"
+  tab = "→ ",
+  eol = "¬",
+  trail = "⋅",
+  extends = "❯",
+  precedes = "❮"
 }
 
 --if vim.fn.has('win32') then

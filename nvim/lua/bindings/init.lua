@@ -2,16 +2,16 @@ local nvimtree = require('nvim-tree')
 _G.NvimTreeConfig = {}
 
 local function map (lhs, rhs) 
-	vim.api.nvim_set_keymap('n', lhs, rhs, { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', lhs, rhs, { noremap = true, silent = true })
 end
 
 function NvimTreeConfig.toggle_replace()
-	local view = require("nvim-tree.view")
-	if view.is_visible() then
-		view.close()
-	else
-		nvimtree.open_replacing_current_buffer()
-	end
+  local view = require("nvim-tree.view")
+  if view.is_visible() then
+    view.close()
+  else
+    nvimtree.open_replacing_current_buffer()
+  end
 end
 
 map('<leader>ff', '<CMD>Telescope find_files<CR>')
