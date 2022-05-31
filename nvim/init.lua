@@ -1,4 +1,4 @@
---require("globals")
+--require('globals')
 local opt = vim.opt
 local cmd = vim.cmd
 local g = vim.g
@@ -16,7 +16,7 @@ opt.swapfile = false
 opt.updatecount = 0
 
 opt.backupdir = {
-  "~/.tmp"
+  '~/.tmp'
 }
 
 opt.undodir = vim.fn.stdpath('data') .. '/undodir'
@@ -42,17 +42,17 @@ opt.relativenumber = true
 opt.wrap = true
 opt.wrapmargin = 8
 opt.linebreak = true
-opt.showbreak = "↪"
+opt.showbreak = '↪'
 opt.autoindent = true
 opt.ttyfast = true
 opt.laststatus = 3
 opt.scrolloff = 7
 opt.wildmenu = true
 opt.showmode = false
-opt.wildmode = {"list", "longest"}
+opt.wildmode = {'list', 'longest'}
 opt.showmatch = true
 opt.mat = 2
-opt.signcolumn = "yes"
+opt.signcolumn = 'yes'
 
 o.expandtab = true
 opt.smarttab = true
@@ -63,11 +63,11 @@ opt.shiftround = true
 
 opt.list = true
 opt.listchars = {
-  tab = "→ ",
-  eol = "¬",
-  trail = "⋅",
-  extends = "❯",
-  precedes = "❮"
+  tab = '→ ',
+  eol = '¬',
+  trail = '⋅',
+  extends = '❯',
+  precedes = '❮'
 }
 
 --if vim.fn.has('win32') then
@@ -82,6 +82,7 @@ opt.listchars = {
 cmd [[filetype plugin indent on]]
 cmd [[colorscheme everforest]]
 
-require("bindings")
-require("statusline")
+require('bindings')
+require('statusline')
+require('plugin.packer')
 
