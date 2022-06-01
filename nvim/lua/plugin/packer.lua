@@ -1,11 +1,12 @@
 local fn = vim.fn
 local packer_install_path = fn.stdpath('data') ..'/site/pack/packer/start/packer.nvim'
 local packer_compile_path = fn.stdpath('config') .. '/lua/packer_compiled.lua'
-local packer_bootstrap
 
 if fn.empty(fn.glob(packer_install_path)) > 0 then
   packer_bootstrap = fn.system({ 'rm', '-f', packer_compile_path })
   fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', packer_install_path})
+  print "Installing packer, close and reopen nvim"
+  vim.cmd [[packadd packer.nvim]]
 end
 
 if fn.filereadable(packer_compile_path) == 1 then
@@ -13,11 +14,27 @@ if fn.filereadable(packer_compile_path) == 1 then
   require('packer_compiled')
 end
 
-local packer = require('packer')
-local util = require('packer.util')
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost packer.lua source <afile> | PackerSync
+  augroup end
+]]
+
+local ok_packer, packer = pcall(require, 'packer')
+if not ok_packer then
+  return
+end
+local ok_util, util = pcall(require, 'packer.util')
+if not ok_util then
+  return
+end
 
 packer.init({
   compile_path = packer_compile_path,
+  profile = {
+    enable = true
+  },
   display = {
     open_fn = function()
       return util.float({
@@ -28,34 +45,29 @@ packer.init({
   },
 })
 
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost packer.lua source <afile> | PackerSync
-  augroup end
-]]
-
 packer.startup(function(use)
-  use 'wbthomason/packer.nvim'
+  use { 'wbthomason/packer.nvim' }
 
-  use 'lewis6991/impatient.nvim'
+  use { 'lewis6991/impatient.nvim' }
 
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons',
     },
-    config = require('plugin.nvim-tree')
+    config = require('plugin.nvim-tree'),
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
   }
 
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
-      {'nvim-lua/plenary.nvim'},
-      {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-      },
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-treesitter/nvim-treesitter' },
       { 'nvim-telescope/telescope-file-browser.nvim' },
       { 'nvim-telescope/telescope-fzy-native.nvim' },
     },

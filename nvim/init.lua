@@ -73,6 +73,7 @@ opt.listchars = {
 cmd [[filetype plugin indent on]]
 cmd [[colorscheme everforest]]
 
+require('bindings')
 require('statusline')
 require('plugin.packer')
 
