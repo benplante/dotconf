@@ -87,6 +87,11 @@ packer.startup(function(use)
     config = require('plugin.omnisharp-vim'),
   }
 
+  use {
+    'folke/which-key.nvim',
+    config = require('plugin.which-key'),
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end
