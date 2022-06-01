@@ -8,7 +8,7 @@ if fn.empty(fn.glob(packer_install_path)) > 0 then
   fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', packer_install_path})
 end
 
-if fn.filereadable(packer_compile_path) then
+if fn.filereadable(packer_compile_path) == 1 then
   require('impatient')
   require('packer_compiled')
 end

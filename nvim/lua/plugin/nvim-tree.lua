@@ -1,6 +1,6 @@
 return function() 
   local nvimtree = require('nvim-tree')
-  --require('nvim-web-devicons')
+  local map = require('util').map
 
   nvimtree.setup {
     disable_netrw = false,
@@ -23,4 +23,17 @@ return function()
       }
     }
   }
+
+  _G.NvimTreeConfig = {}
+
+  function NvimTreeConfig.toggle_replace()
+    local view = require('nvim-tree.view')
+    if view.is_visible() then
+      view.close()
+    else
+      nvimtree.open_replacing_current_buffer()
+    end
+  end
+  map('n', '-', '<CMD>lua NvimTreeConfig.toggle_replace()<CR>')
+  map('n', '<LEADER>nt', '<CMD>NvimTreeToggle<CR>')
 end
