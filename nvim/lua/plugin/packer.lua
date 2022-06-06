@@ -8,7 +8,7 @@ if fn.empty(fn.glob(packer_install_path)) > 0 then
   fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', packer_install_path})
 end
 
-if fn.filereadable(packer_compile_path) then
+if fn.filereadable(packer_compile_path) == 1 then
   require('impatient')
   require('packer_compiled')
 end
@@ -41,11 +41,14 @@ packer.startup(function(use)
   use 'lewis6991/impatient.nvim'
 
   use {
-    'kyazdani42/nvim-tree.lua',
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v2.x',
     requires = {
+      'nvim-lua/plenary.nvim',
       'kyazdani42/nvim-web-devicons',
+      'MunifTanjim/nui.nvim'
     },
-    config = require('plugin.nvim-tree')
+    config = require('plugin.neo-tree'),
   }
 
   use {
