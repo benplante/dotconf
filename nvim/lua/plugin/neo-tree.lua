@@ -10,10 +10,11 @@ return function()
     { text = "", texthl = "DiagnosticSignHint" })
 
   require('neo-tree').setup {
-    window = {
-      position = 'current',
-    },
     filesystem = {
+      window = {
+        position = 'current'
+      },
+      netrw_hijack_behavior = 'open_current',
       use_libuv_file_watcher = true,
     }
     
