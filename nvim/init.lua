@@ -1,4 +1,3 @@
---require('globals')
 local opt = vim.opt
 local cmd = vim.cmd
 local g = vim.g
@@ -70,14 +69,6 @@ opt.listchars = {
   precedes = '❮'
 }
 
---if vim.fn.has('win32') then
---	opt.shell = 'pwsh'
---	opt.shellxquote = ''
---	opt.shellpipe = '|'
---	opt.shellcmdflag = '-NoLogo -NoProfile -Command'
---	opt.shellredir = '| Out-File -Encoding UTF8'
---	opt.rtp += vim.fn.stdpath('data') + 'site/pack/packer/start/fzf/bin'
---end
 
 cmd [[filetype plugin indent on]]
 cmd [[colorscheme everforest]]
