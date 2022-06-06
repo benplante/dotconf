@@ -8,8 +8,15 @@ return function()
     { text = " ", texthl = "DiagnosticSignInfo" })
   vim.fn.sign_define("DiagnosticSignHint",
     { text = "", texthl = "DiagnosticSignHint" })
-  require('neo-tree').setup {
 
+  require('neo-tree').setup {
+    window = {
+      position = 'current',
+    },
+    filesystem = {
+      use_libuv_file_watcher = true,
+    }
+    
   }
 
 end
