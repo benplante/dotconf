@@ -79,15 +79,12 @@ packer.startup(function(use)
   }
 
   use {
-    disable = true,
     'neovim/nvim-lspconfig',
+    requires = {
+      'hrsh7th/nvim-cmp',
+      'hrsh7th/cmp-nvim-lsp'
+    },
     config = require('plugin.nvim-lspconfig'),
-  }
-
-  use {
-    'OmniSharp/omnisharp-vim',
-    ft = {'sln','csproj','cs'},
-    config = require('plugin.omnisharp-vim'),
   }
 
   use {

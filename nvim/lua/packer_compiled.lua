@@ -69,16 +69,37 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/home/bplante/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
-  ["nvim-tree.lua"] = {
-    config = { "\27LJ\2\2‡\1\0\0\2\1\5\0\0146\0\0\0'\1\1\0B\0\2\0029\1\2\0B\1\1\2\15\0\1\0X\2\3€9\1\3\0B\1\1\1X\1\3€-\1\0\0009\1\4\1B\1\1\1K\0\1\0\0À\"open_replacing_current_buffer\nclose\15is_visible\19nvim-tree.view\frequire\4\1\0\t\0\27\0*6\0\0\0'\1\1\0B\0\2\0026\1\0\0'\2\2\0B\1\2\0029\1\3\0019\2\4\0005\3\5\0005\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0005\5\14\0004\6\3\0005\a\f\0005\b\v\0=\b\r\a>\a\1\6=\6\15\5=\5\16\4=\4\17\3B\2\2\0016\2\18\0004\3\0\0=\3\19\0026\2\19\0003\3\21\0=\3\20\2\18\2\1\0'\3\22\0'\4\23\0'\5\24\0B\2\4\1\18\2\1\0'\3\22\0'\4\25\0'\5\26\0B\2\4\0012\0\0€K\0\1\0\28<CMD>NvimTreeToggle<CR>\15<LEADER>nt1<CMD>lua NvimTreeConfig.toggle_replace()<CR>\6-\6n\0\19toggle_replace\19NvimTreeConfig\a_G\tview\rmappings\tlist\1\0\0\bkey\1\0\1\vaction\18edit_in_place\1\3\0\0\6o\t<CR>\1\0\2\nwidth\0032\tside\nright\bgit\1\0\1\venable\2\23hijack_directories\1\0\1\venable\2\1\0\4\18disable_netrw\1\15update_cwd\2\17hijack_netrw\2\18hijack_cursor\2\nsetup\bmap\tutil\14nvim-tree\frequire\0" },
+  ["neo-tree.nvim"] = {
+    config = { "\27LJ\2\2Ô\3\0\0\3\0\16\0#6\0\0\0009\0\1\0'\1\2\0B\0\2\0016\0\0\0009\0\3\0009\0\4\0'\1\5\0005\2\6\0B\0\3\0016\0\0\0009\0\3\0009\0\4\0'\1\a\0005\2\b\0B\0\3\0016\0\0\0009\0\3\0009\0\4\0'\1\t\0005\2\n\0B\0\3\0016\0\0\0009\0\3\0009\0\4\0'\1\v\0005\2\f\0B\0\3\0016\0\r\0'\1\14\0B\0\2\0029\0\15\0004\1\0\0B\0\2\1K\0\1\0\nsetup\rneo-tree\frequire\1\0\2\ttext\bï ´\vtexthl\23DiagnosticSignHint\23DiagnosticSignHint\1\0\2\ttext\tïš \vtexthl\23DiagnosticSignInfo\23DiagnosticSignInfo\1\0\2\ttext\tï± \vtexthl\23DiagnosticSignWarn\23DiagnosticSignWarn\1\0\2\ttext\tï— \vtexthl\24DiagnosticSignError\24DiagnosticSignError\16sign_define\afn.let g:neo_tree_remove_legacy_commands = 1\bcmd\bvim\0" },
     loaded = true,
-    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/kyazdani42/nvim-tree.lua"
+    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
+    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-lspconfig"] = {
+    config = { "\27LJ\2\2c\0\2\6\0\5\0\b6\2\0\0009\2\1\0029\2\2\2\18\3\1\0'\4\3\0'\5\4\0B\2\4\1K\0\1\0\27v:lua.vim.lsp.omnifunc\romnifunc\24nvim_buf_set_option\bapi\bvim°\5\1\0\n\0*\1F6\0\0\0'\1\1\0B\0\2\0026\1\0\0'\2\2\0B\1\2\0026\2\3\0009\2\4\0029\2\5\2B\2\1\0029\3\6\0009\3\a\0039\3\b\0035\4\f\0006\5\t\0009\5\n\5'\6\v\0B\5\2\2>\5\1\4B\3\2\0029\4\r\0015\5\26\0005\6\16\0009\a\14\0019\a\15\aB\a\1\2=\a\17\0069\a\14\0019\a\18\aB\a\1\2=\a\19\0069\a\14\0019\a\20\a5\b\23\0009\t\21\0019\t\22\t=\t\24\bB\a\2\2=\a\25\6=\6\14\0054\6\3\0005\a\27\0>\a\1\6=\6\28\5B\4\2\0019\4\29\0009\4\r\0045\5#\0006\6\0\0'\a\30\0B\6\2\0029\6\31\0066\a\3\0009\a \a9\a!\a9\a\"\aB\a\1\0A\6\0\2=\6$\0053\6%\0=\6&\0055\6'\0>\3\1\0066\a(\0\18\b\2\0B\a\2\0?\a\0\0=\6)\5B\4\2\1K\0\1\0\bcmd\rtostring\1\4\0\0\0\21--languageserver\14--hostPID\14on_attach\0\17capabilities\1\0\0\29make_client_capabilities\rprotocol\blsp\24update_capabilities\17cmp_nvim_lsp\14omnisharp\fsources\1\0\1\tname\rnvim_lsp\1\0\0\t<CR>\rbehavior\1\0\1\vselect\2\fReplace\20ConfirmBehavior\fconfirm\f<S-Tab>\21select_prev_item\n<Tab>\1\0\0\21select_next_item\fmapping\nsetup\1\3\0\0\0\25.local/omnisharp/run\tHOME\vgetenv\aos\tjoin\tpath\tutil\vgetpid\afn\bvim\bcmp\14lspconfig\frequire\t€€À™\4\0" },
+    loaded = true,
+    path = "/home/bplante/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -89,14 +110,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bplante/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  ["omnisharp-vim"] = {
-    config = { "\27LJ\2\2\v\0\0\1\0\0\0\1K\0\1\0\0" },
-    loaded = false,
-    needs_bufread = true,
-    only_cond = false,
-    path = "/home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim",
-    url = "https://github.com/OmniSharp/omnisharp-vim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -128,7 +141,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["which-key.nvim"] = {
-    config = { "\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0" },
+    config = { "\27LJ\2\2º\1\0\0\5\0\t\0\0156\0\0\0'\1\1\0B\0\2\0029\1\2\0004\2\0\0B\1\2\0019\1\3\0005\2\a\0005\3\4\0005\4\5\0=\4\6\3=\3\6\0025\3\b\0B\1\3\1K\0\1\0\1\0\1\vprefix\r<leader>\1\0\0\6f\1\3\0\0\"<CMD>Telescope find_files<CR>\14Find File\1\0\1\tname\14Telescope\rregister\nsetup\14which-key\frequire\0" },
     loaded = true,
     path = "/home/bplante/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
@@ -136,40 +149,24 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: neo-tree.nvim
+time([[Config for neo-tree.nvim]], true)
+try_loadstring("\27LJ\2\2Ô\3\0\0\3\0\16\0#6\0\0\0009\0\1\0'\1\2\0B\0\2\0016\0\0\0009\0\3\0009\0\4\0'\1\5\0005\2\6\0B\0\3\0016\0\0\0009\0\3\0009\0\4\0'\1\a\0005\2\b\0B\0\3\0016\0\0\0009\0\3\0009\0\4\0'\1\t\0005\2\n\0B\0\3\0016\0\0\0009\0\3\0009\0\4\0'\1\v\0005\2\f\0B\0\3\0016\0\r\0'\1\14\0B\0\2\0029\0\15\0004\1\0\0B\0\2\1K\0\1\0\nsetup\rneo-tree\frequire\1\0\2\ttext\bï ´\vtexthl\23DiagnosticSignHint\23DiagnosticSignHint\1\0\2\ttext\tïš \vtexthl\23DiagnosticSignInfo\23DiagnosticSignInfo\1\0\2\ttext\tï± \vtexthl\23DiagnosticSignWarn\23DiagnosticSignWarn\1\0\2\ttext\tï— \vtexthl\24DiagnosticSignError\24DiagnosticSignError\16sign_define\afn.let g:neo_tree_remove_legacy_commands = 1\bcmd\bvim\0", "config", "neo-tree.nvim")
+time([[Config for neo-tree.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\2c\0\2\6\0\5\0\b6\2\0\0009\2\1\0029\2\2\2\18\3\1\0'\4\3\0'\5\4\0B\2\4\1K\0\1\0\27v:lua.vim.lsp.omnifunc\romnifunc\24nvim_buf_set_option\bapi\bvim°\5\1\0\n\0*\1F6\0\0\0'\1\1\0B\0\2\0026\1\0\0'\2\2\0B\1\2\0026\2\3\0009\2\4\0029\2\5\2B\2\1\0029\3\6\0009\3\a\0039\3\b\0035\4\f\0006\5\t\0009\5\n\5'\6\v\0B\5\2\2>\5\1\4B\3\2\0029\4\r\0015\5\26\0005\6\16\0009\a\14\0019\a\15\aB\a\1\2=\a\17\0069\a\14\0019\a\18\aB\a\1\2=\a\19\0069\a\14\0019\a\20\a5\b\23\0009\t\21\0019\t\22\t=\t\24\bB\a\2\2=\a\25\6=\6\14\0054\6\3\0005\a\27\0>\a\1\6=\6\28\5B\4\2\0019\4\29\0009\4\r\0045\5#\0006\6\0\0'\a\30\0B\6\2\0029\6\31\0066\a\3\0009\a \a9\a!\a9\a\"\aB\a\1\0A\6\0\2=\6$\0053\6%\0=\6&\0055\6'\0>\3\1\0066\a(\0\18\b\2\0B\a\2\0?\a\0\0=\6)\5B\4\2\1K\0\1\0\bcmd\rtostring\1\4\0\0\0\21--languageserver\14--hostPID\14on_attach\0\17capabilities\1\0\0\29make_client_capabilities\rprotocol\blsp\24update_capabilities\17cmp_nvim_lsp\14omnisharp\fsources\1\0\1\tname\rnvim_lsp\1\0\0\t<CR>\rbehavior\1\0\1\vselect\2\fReplace\20ConfirmBehavior\fconfirm\f<S-Tab>\21select_prev_item\n<Tab>\1\0\0\21select_next_item\fmapping\nsetup\1\3\0\0\0\25.local/omnisharp/run\tHOME\vgetenv\aos\tjoin\tpath\tutil\vgetpid\afn\bvim\bcmp\14lspconfig\frequire\t€€À™\4\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
+try_loadstring("\27LJ\2\2º\1\0\0\5\0\t\0\0156\0\0\0'\1\1\0B\0\2\0029\1\2\0004\2\0\0B\1\2\0019\1\3\0005\2\a\0005\3\4\0005\4\5\0=\4\6\3=\3\6\0025\3\b\0B\1\3\1K\0\1\0\1\0\1\vprefix\r<leader>\1\0\0\6f\1\3\0\0\"<CMD>Telescope find_files<CR>\14Find File\1\0\1\tname\14Telescope\rregister\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
 time([[Config for which-key.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\2‡\1\0\0\2\1\5\0\0146\0\0\0'\1\1\0B\0\2\0029\1\2\0B\1\1\2\15\0\1\0X\2\3€9\1\3\0B\1\1\1X\1\3€-\1\0\0009\1\4\1B\1\1\1K\0\1\0\0À\"open_replacing_current_buffer\nclose\15is_visible\19nvim-tree.view\frequire\4\1\0\t\0\27\0*6\0\0\0'\1\1\0B\0\2\0026\1\0\0'\2\2\0B\1\2\0029\1\3\0019\2\4\0005\3\5\0005\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0005\5\14\0004\6\3\0005\a\f\0005\b\v\0=\b\r\a>\a\1\6=\6\15\5=\5\16\4=\4\17\3B\2\2\0016\2\18\0004\3\0\0=\3\19\0026\2\19\0003\3\21\0=\3\20\2\18\2\1\0'\3\22\0'\4\23\0'\5\24\0B\2\4\1\18\2\1\0'\3\22\0'\4\25\0'\5\26\0B\2\4\0012\0\0€K\0\1\0\28<CMD>NvimTreeToggle<CR>\15<LEADER>nt1<CMD>lua NvimTreeConfig.toggle_replace()<CR>\6-\6n\0\19toggle_replace\19NvimTreeConfig\a_G\tview\rmappings\tlist\1\0\0\bkey\1\0\1\vaction\18edit_in_place\1\3\0\0\6o\t<CR>\1\0\2\nwidth\0032\tside\nright\bgit\1\0\1\venable\2\23hijack_directories\1\0\1\venable\2\1\0\4\18disable_netrw\1\15update_cwd\2\17hijack_netrw\2\18hijack_cursor\2\nsetup\bmap\tutil\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[au CmdUndefined Telescope* ++once lua require"packer.load"({'telescope.nvim'}, {}, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType csproj ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "csproj" }, _G.packer_plugins)]]
-vim.cmd [[au FileType sln ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "sln" }, _G.packer_plugins)]]
-vim.cmd [[au FileType cs ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "cs" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-vim.cmd("augroup END")
-vim.cmd [[augroup filetypedetect]]
-time([[Sourcing ftdetect script at: /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/cake.vim]], true)
-vim.cmd [[source /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/cake.vim]]
-time([[Sourcing ftdetect script at: /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/cake.vim]], false)
-time([[Sourcing ftdetect script at: /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/csx.vim]], true)
-vim.cmd [[source /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/csx.vim]]
-time([[Sourcing ftdetect script at: /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/csx.vim]], false)
-time([[Sourcing ftdetect script at: /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/omnisharplog.vim]], true)
-vim.cmd [[source /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/omnisharplog.vim]]
-time([[Sourcing ftdetect script at: /home/bplante/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/omnisharplog.vim]], false)
-vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)
