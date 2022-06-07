@@ -84,6 +84,7 @@ packer.startup(function(use)
       'hrsh7th/nvim-cmp',
       'hrsh7th/cmp-nvim-lsp'
     },
+    run = require('plugin.omnisharp-roslyn').install(),
     config = require('plugin.nvim-lspconfig'),
   }
 

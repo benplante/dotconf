@@ -4,7 +4,7 @@ return function()
 
   local pid = vim.fn.getpid()
 
-  local omnisharp_bin = lspconfig.util.path.join { os.getenv('HOME'), '.local/omnisharp/run' }
+  local omnisharp_bin = lspconfig.util.path.join { vim.fn.stdpath('data'), 'site/omnisharp/run' }
 
   cmp.setup {
     mapping = {

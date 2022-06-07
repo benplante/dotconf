@@ -27,7 +27,6 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
 opt.incsearch = true
-opt.lazyredraw = false
 opt.magic = true
 
 opt.errorbells = false
@@ -43,7 +42,6 @@ opt.wrapmargin = 8
 opt.linebreak = true
 opt.showbreak = '↪'
 opt.autoindent = true
-opt.ttyfast = true
 opt.laststatus = 3
 opt.scrolloff = 7
 opt.wildmenu = true
@@ -55,9 +53,9 @@ opt.signcolumn = 'yes'
 
 o.expandtab = true
 opt.smarttab = true
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4 
 opt.shiftround = true
 
 opt.list = true
@@ -69,6 +67,7 @@ opt.listchars = {
   precedes = '❮'
 }
 
+o.guifont = 'Liga SFMono Nerd Font'
 
 cmd [[filetype plugin indent on]]
 cmd [[colorscheme everforest]]
