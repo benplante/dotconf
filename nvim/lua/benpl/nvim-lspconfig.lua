@@ -1,10 +1,6 @@
 return function()
-  local lspconfig = require('lspconfig')
   local cmp = require('cmp')
-
-  local pid = vim.fn.getpid()
-
-  local omnisharp_bin = lspconfig.util.path.join { vim.fn.stdpath('data'), 'site/omnisharp/run' }
+  local lspconfig = require('lspconfig')
 
   cmp.setup {
     mapping = {
@@ -25,6 +21,6 @@ return function()
     on_attach = function(_, bufnr)
       vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     end,
-    --cmd = { omnisharp_bin, '--languageserver', '--hostPID', tostring(pid) }
+    
   }
 end

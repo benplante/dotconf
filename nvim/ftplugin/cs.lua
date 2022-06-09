@@ -1,4 +1,4 @@
-local set = require('benpl.util').options
+local set = require('benpl.util').set_options
 
 local options = {
   matchpairs = "(:),{:},[:],=:;",
