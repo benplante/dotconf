@@ -9,4 +9,10 @@ function M.map(mode, map, cmd, opts)
   vim.api.nvim_set_keymap(mode, map, cmd, options)
 end
 
+function M.set_options(scope, options)
+  for k, v in pairs(options) do
+    vim[scope][k] = v
+  end
+end
+
 return M

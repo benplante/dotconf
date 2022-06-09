@@ -58,7 +58,7 @@ packer.startup(function(use)
       'kyazdani42/nvim-web-devicons',
       'MunifTanjim/nui.nvim'
     },
-    config = require('plugin.neo-tree'),
+    config = require('benpl.neo-tree'),
   }
 
   use {
@@ -74,7 +74,7 @@ packer.startup(function(use)
       { 'nvim-telescope/telescope-file-browser.nvim' },
       { 'nvim-telescope/telescope-fzy-native.nvim' },
     },
-    config = require('plugin.telescope'),
+    config = require('benpl.telescope'),
     cmd = {'Telescope*'},
   }
 
@@ -82,15 +82,15 @@ packer.startup(function(use)
     'neovim/nvim-lspconfig',
     requires = {
       'hrsh7th/nvim-cmp',
-      'hrsh7th/cmp-nvim-lsp'
+      'hrsh7th/cmp-nvim-lsp',
+      'williamboman/nvim-lsp-installer',
     },
-    run = require('plugin.omnisharp-roslyn').install(),
-    config = require('plugin.nvim-lspconfig'),
+    config = require('benpl.nvim-lspconfig'),
   }
 
   use {
     'folke/which-key.nvim',
-    config = require('plugin.which-key'),
+    config = require('benpl.which-key'),
   }
 
   if packer_bootstrap then
