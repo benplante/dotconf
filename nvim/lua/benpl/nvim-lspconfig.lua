@@ -16,11 +16,27 @@ return function()
     }
   }
 
-  lspconfig.omnisharp.setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    on_attach = function(_, bufnr)
-      vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    end,
-    
-  }
+  local on_attach = function(client, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', ';', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', '<A-;>', vim.lsp.buf.signature_help, bufopts)
+  end
+
+  local servers = { 'omnisharp', 'sumneko_lua' }
+
+  for _, lsp in pairs(servers) do
+    lspconfig[lsp].setup {
+      capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+      on_attach = on_attach,
+      flags = {
+        debounce_text_changes = 150,
+      },
+    }
+  end
 end

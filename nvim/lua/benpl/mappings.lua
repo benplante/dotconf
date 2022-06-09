@@ -20,8 +20,8 @@ map('n', '<C-l>', '<C-w>l')
 -- -/= resize horizontally Shift + -/= to resize vertically
 map('n', '+', '<C-w>1+')
 map('n', '_', '<C-w>1-')
-map('n', '=', '<C-w>1>')
-map('n', '-', '<C-w>1<')
+map('n', '<A-=>', '<C-w>1>')
+map('n', '<A-->', '<C-w>1<')
 
 -- Alt + j/k to move text up or down
 map('n', '<A-j>', '<CMD>move .+1<CR>==')

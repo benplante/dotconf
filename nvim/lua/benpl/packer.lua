@@ -64,6 +64,11 @@ packer.startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = { 'c_sharp', 'lua', 'javascript', 'json', 'json5', 'typescript' }
+      }
+    end
   }
 
   use {
