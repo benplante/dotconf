@@ -85,7 +85,7 @@ packer.startup(function(use)
 
   use {
       'williamboman/nvim-lsp-installer',
-      config = function() require('nvim-lsp-installer').setup {} end
+      config = function() require('nvim-lsp-installer').setup { automatic_installation = true } end
   }
 
   use {
