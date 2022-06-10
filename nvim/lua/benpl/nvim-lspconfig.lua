@@ -26,6 +26,7 @@ return function()
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', ';', vim.lsp.buf.hover, bufopts)
     vim.keymap.set('n', '<A-;>', vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set('n', 'cr', vim.lsp.buf.rename, bufopts)
   end
 
   local servers = { 'omnisharp', 'sumneko_lua' }

@@ -76,11 +76,18 @@ packer.startup(function(use)
     requires = {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-treesitter/nvim-treesitter' },
-      { 'nvim-telescope/telescope-file-browser.nvim' },
       { 'nvim-telescope/telescope-fzy-native.nvim' },
     },
-    config = require('benpl.telescope'),
-    cmd = {'Telescope*'},
+    config = require('benpl.telescope').setup
+  }
+
+  use {
+    'nvim-telescope/telescope-frecency.nvim',
+    requires = { 'tami5/sqlite.lua' },
+  }
+
+  use {
+    'nvim-telescope/telescope-file-browser.nvim',
   }
 
   use {
