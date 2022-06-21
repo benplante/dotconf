@@ -105,6 +105,13 @@ packer.startup(function(use)
     config = require('benpl.nvim-lspconfig'),
   }
 
+  use { 'L3MON4D3/LuaSnip' }
+  use { 'saadparwaiz1/cmp_luasnip' }
+
+  use {
+    'mfussenegger/nvim-dap'
+  }
+
   use {
     'folke/which-key.nvim',
     config = require('benpl.which-key'),

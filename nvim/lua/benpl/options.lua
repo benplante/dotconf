@@ -75,4 +75,9 @@ vim.g.did_load_filetypes = 0
 
 vim.cmd [[abbr cosnt const]]
 vim.cmd [[abbr pubic public]]
+vim.cmd [[abbr _lp LBMX.Phoenix]]
+vim.cmd [[abbr _ld LBMX.Phoenix.Data]]
+vim.cmd [[abbr _ls LBMX.Phoenix.Services]]
+vim.cmd [[abbr _la LBMX.Phoenix.API]]
+
 
