@@ -10,6 +10,7 @@ local options = {
   hidden          =       true,
   fileencoding    =       'utf-8',
   clipboard       =       'unnamedplus',
+  shell           =       '/bin/bash',
 
   ignorecase      =       true,
   smartcase       =       true,
