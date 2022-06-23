@@ -62,6 +62,19 @@ packer.startup(function(use)
   }
 
   use {
+    'TimUntersberger/neogit',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function() require('neogit').setup() end,
+  }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function() require('gitsigns').setup() end,
+  }
+
+  use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
@@ -115,6 +128,14 @@ packer.startup(function(use)
   use {
     'folke/which-key.nvim',
     config = require('benpl.which-key'),
+  }
+
+  use {
+    'anuvyklack/hydra.nvim',
+    requires = {
+      'anuvyklack/keymap-layer.nvim'
+    },
+    config = function() require('benpl.hydra') end,
   }
 
   if packer_bootstrap then
