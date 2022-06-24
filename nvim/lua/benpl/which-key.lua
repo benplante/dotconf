@@ -12,7 +12,7 @@ return function()
       b = { builtin.buffers, 'Buffer Names', },
       g = { telescope_config.project_files, 'Git Files', },
       d = { extensions.file_browser.file_browser, 'Browser', },
-      s = { extensions.file_browser.live_grep, 'Grep', },
+      s = { builtin.live_grep, 'Grep', },
     },
     c = {
       name = 'Code',
