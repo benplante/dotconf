@@ -1,6 +1,5 @@
 return function()
   local cmp = require('cmp')
-  local lspconfig = require('lspconfig')
 
   cmp.setup {
     snippet = {
@@ -37,15 +36,18 @@ return function()
     vim.keymap.set('n', '<leader>;', vim.lsp.buf.code_action, bufopts)
   end
 
-  local servers = { 'omnisharp', 'sumneko_lua' }
-
-  for _, lsp in pairs(servers) do
-    lspconfig[lsp].setup {
-      capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-      on_attach = on_attach,
-      flags = {
-        debounce_text_changes = 150,
-      },
-    }
-  end
+  require('mason-lspconfig').setup {
+    ensure_installed = { "lua_ls", "omnisharp" }
+  }
+  require('mason-lspconfig').setup_handlers {
+    function (server_name)
+      require('lspconfig')[server_name].setup {
+          capabilities = require('cmp_nvim_lsp').default_capabilities(),
+          on_attach = on_attach,
+          flags = {
+            debounce_text_changes = 150
+          }
+      }
+    end
+  }
 end

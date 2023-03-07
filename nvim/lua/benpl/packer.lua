@@ -79,7 +79,8 @@ packer.startup(function(use)
     run = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'c_sharp', 'lua', 'javascript', 'json', 'json5', 'typescript' }
+        ensure_installed = { 'c_sharp', 'lua', 'javascript', 'json', 'json5', 'typescript' },
+        disable = { 'c' }
       }
     end
   }
@@ -104,14 +105,15 @@ packer.startup(function(use)
   }
 
   use {
-      'williamboman/nvim-lsp-installer',
-      config = function() require('nvim-lsp-installer').setup { automatic_installation = true } end
+      'williamboman/mason.nvim',
+      config = function() require('mason').setup() end
   }
 
   use {
     'neovim/nvim-lspconfig',
-    after = 'nvim-lsp-installer',
+    after = 'mason-lspconfig.nvim',
     requires = {
+      'williamboman/mason-lspconfig.nvim',
       'hrsh7th/nvim-cmp',
       'hrsh7th/cmp-nvim-lsp',
     },
