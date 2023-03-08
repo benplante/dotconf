@@ -97,7 +97,7 @@ packer.startup(function(use)
 
   use {
     'nvim-telescope/telescope-frecency.nvim',
-    requires = { 'tami5/sqlite.lua' },
+    requires = { 'kkharji/sqlite.lua' },
   }
 
   use {

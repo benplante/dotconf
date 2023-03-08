@@ -69,10 +69,7 @@ local options = {
   guifont         =       'Liga SFMono Nerd Font',
 }
 
-set('opt', options) 
-
-vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
+set('opt', options)
 
 vim.cmd [[abbr cosnt const]]
 vim.cmd [[abbr pubic public]]
