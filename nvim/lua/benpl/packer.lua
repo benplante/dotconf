@@ -10,7 +10,6 @@ if fn.empty(fn.glob(packer_install_path)) > 0 then
 end
 
 if fn.filereadable(packer_compile_path) == 1 then
-  require('impatient')
   require('packer_compiled')
 end
 
@@ -49,6 +48,14 @@ packer.startup(function(use)
   use { 'wbthomason/packer.nvim' }
 
   use { 'lewis6991/impatient.nvim' }
+
+  use {
+    'nyoom-engineering/oxocarbon.nvim',
+    config = function()
+      vim.opt.background = 'dark'
+      vim.cmd [[ colorscheme oxocarbon ]]
+    end
+  }
 
   use {
     'nvim-neo-tree/neo-tree.nvim',
@@ -100,9 +107,7 @@ packer.startup(function(use)
     requires = { 'kkharji/sqlite.lua' },
   }
 
-  use {
-    'nvim-telescope/telescope-file-browser.nvim',
-  }
+  use { 'nvim-telescope/telescope-file-browser.nvim' }
 
   use {
       'williamboman/mason.nvim',
@@ -123,9 +128,7 @@ packer.startup(function(use)
   use { 'L3MON4D3/LuaSnip' }
   use { 'saadparwaiz1/cmp_luasnip' }
 
-  use {
-    'mfussenegger/nvim-dap'
-  }
+  use { 'mfussenegger/nvim-dap' }
 
   use {
     'folke/which-key.nvim',

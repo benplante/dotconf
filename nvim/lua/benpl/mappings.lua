@@ -1,8 +1,9 @@
 local map = require('benpl.util').map
 
-map('n', '<leader>nt', '<CMD>Neotree filesystem reveal right<CR>')
+--map('n', '<leader>nt', '<CMD>Neotree filesystem reveal right<CR>')
 map('n', '<leader>gs', '<CMD>Neotree git_status float<CR>')
 map('n', '-', '<CMD>Neotree filesystem reveal current<CR>')
+map('n', '<C-->', '<CMD>Neotree filesystem reveal float<CR>')
 
 -- Ctrl h/j/k/l to move move around windows
 map('n', '<C-h>', '<C-w>h')

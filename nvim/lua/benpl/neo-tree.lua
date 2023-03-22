@@ -1,6 +1,7 @@
 return function()
   vim.cmd [[let g:neo_tree_remove_legacy_commands = 1]]
-  vim.fn.sign_define("DiagnosticSignError", 
+
+  vim.fn.sign_define("DiagnosticSignError",
     { text = " ", texthl = "DiagnosticSignError" })
   vim.fn.sign_define("DiagnosticSignWarn",
     { text = " ", texthl = "DiagnosticSignWarn" })
@@ -10,14 +11,18 @@ return function()
     { text = "", texthl = "DiagnosticSignHint" })
 
   require('neo-tree').setup {
+    log_level = "trace",
+    log_to_file = true,
+    enable_git_status = true,
+    enable_diagnostics = true,
+    sort_case_insensitive = false,
+    windows = {
+      position = "current"
+    },
     filesystem = {
-      window = {
-        position = 'current'
-      },
       netrw_hijack_behavior = 'open_current',
       use_libuv_file_watcher = true,
     }
-    
   }
 
 end
