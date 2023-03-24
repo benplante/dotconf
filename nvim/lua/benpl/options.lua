@@ -20,7 +20,8 @@ local options = {
 
   errorbells      =       false,
   visualbell      =       true,
-  timeoutlen      =       100,
+  timeout         =       true,
+  timeoutlen      =       500,
   termguicolors   =       true,
 
   syntax          =       'on',

@@ -1,3 +1,5 @@
+require('benpl.options')
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,11 +13,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = ','
+vim.g.mapleader = '\\'
+vim.g.maplocalleader = '\\'
 
 require('lazy').setup('plugins')
-require('benpl.options')
 --require('benpl.packer')
 --require('benpl.mappings')
-require('benpl.statusline')
+--require('benpl.statusline')
 
