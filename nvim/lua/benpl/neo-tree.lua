@@ -11,16 +11,18 @@ return function()
     { text = "", texthl = "DiagnosticSignHint" })
 
   require('neo-tree').setup {
-    log_level = "trace",
+    log_level = "warn",
     log_to_file = true,
     enable_git_status = true,
     enable_diagnostics = true,
-    sort_case_insensitive = false,
-    windows = {
-      position = "current"
+    window = {
+      position = "float"
     },
     filesystem = {
-      netrw_hijack_behavior = 'open_current',
+      window = {
+        position = "float"
+      },
+      netrw_hijack_behavior = 'disable',
       use_libuv_file_watcher = true,
     }
   }
