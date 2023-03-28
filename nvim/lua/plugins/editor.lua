@@ -70,7 +70,7 @@ return {
           -- Size
           { '+', function() splits.resize_up(2) end, { desc = 'Resize up' } },
           { '-', function() splits.resize_down(2) end, { desc = 'Resize down' }},
-          { '<S-->', function() splits.resize_down(2) end, { desc = 'Resize down' }},
+          { '<S-->', function() splits.resize_down(2) end, { desc = false }},
           { '<', function() splits.resize_left(2) end, { desc = 'Resize right' } },
           { '>', function() splits.resize_right(2) end, { desc = 'Resize left' } },
           { '=', '<C-w>=', { desc = 'equalize'} },
@@ -79,7 +79,7 @@ return {
           -- Split
           { 's', '<C-w>s', { desc = 'Split horizontally' } },
           { 'v', '<C-w>v', { desc = 'Split vertically' } },
-          { 'q', '<CMD>try | close | catch | endtry<CR>', { desc = 'Close window' } },
+          { 'q', '<CMD>try | close | catch | endtry<CR>', { exit = true, desc = 'Close window' } },
           { 'b', '<Cmd>BufExplorer<CR>', { exit = true, desc = 'Choose buffer' } },
           { 'o', '<C-w>o', { exit = true, desc = 'Close others' } },
           { '<Esc>', nil,  { exit = true, desc = false }}
