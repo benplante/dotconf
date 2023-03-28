@@ -13,5 +13,8 @@ return {
       vim.g.enfocado_style = "neon"
       vim.cmd [[ colorscheme enfocado ]]
     end
+  },
+  {
+    'stevearc/dressing.nvim'
   }
 }
