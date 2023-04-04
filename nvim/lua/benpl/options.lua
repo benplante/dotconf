@@ -42,6 +42,7 @@ local options = {
     extends = '❯',
     precedes = '❮'
   },
+  cursorline      =       true,
   updatetime      =       300,
   showtabline     =       2,
   mouse           =       "a",
