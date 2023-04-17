@@ -25,31 +25,34 @@ return {
       local cmp = require('cmp')
 
       cmp.setup({
+        completion = {
+          completeopt = "menu,menuone,noinsert"
+        },
         snippet = {
           expand = function(args)
             require('luasnip').lsp_expand(args.body)
           end
         },
-        mappings = {
-          ['<tab>'] = cmp.mapping.select_next_item(),
-          ['<s-tab>'] = cmp.mapping.select_prev_item(),
+        mapping = {
+          ['<Tab>'] = cmp.mapping.select_next_item(),
+          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+          ['<C-e>'] = cmp.mapping.abort(),
           ['<CR>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
           })
         },
-        sources = {
-          { name = 'luasnip' },
+        sources = cmp.config.sources({
           { name = 'nvim_lua' },
           { name = 'nvim_lsp' },
-        }
+        })
       })
 
       local on_attach = function(client, bufnr)
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, vim.tbl_extend(bufopts, { desc = 'Declaration' }))
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
         vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, bufopts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
