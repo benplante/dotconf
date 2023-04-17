@@ -1,6 +1,7 @@
 return {
   {
     'nvim-neo-tree/neo-tree.nvim',
+    --dev = true,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-web-devicons',
@@ -25,7 +26,7 @@ return {
     end,
     opts = {
       window = {
-        position = 'float'
+        position = 'current'
       },
       filesystem = {
         bind_to_cwd = false,

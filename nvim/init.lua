@@ -16,7 +16,11 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = '\\'
 vim.g.maplocalleader = '\\'
 
-require('lazy').setup('plugins')
+require('lazy').setup('plugins', {
+  dev = {
+    path = '~/src'
+  }
+})
 --require('benpl.packer')
 --require('benpl.mappings')
 --require('benpl.statusline')

@@ -23,7 +23,14 @@ return {
       { "<leader>z", function() require('zen-mode').toggle() end, desc = 'Zen Mode' }
     },
     config = function()
-      require('zen-mode').setup()
+      require('zen-mode').setup({
+        plugins = {
+          kitty = {
+            enabled = true,
+            font = "+4"
+          }
+        }
+      })
       require('twilight').setup()
     end
   },
