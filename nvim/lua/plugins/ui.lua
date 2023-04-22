@@ -4,14 +4,6 @@ return {
     priority = 1000,
   },
   {
-    "NLKNguyen/papercolor-theme",
-    priority = 1000,
-  },
-  {
-    "junegunn/seoul256.vim",
-    priority = 1000,
-  },
-  {
     "folke/tokyonight.nvim"
   },
   {
@@ -35,13 +27,39 @@ return {
     end
   },
   {
-    "wuelnerdotexe/vim-enfocado",
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = false,
     priority = 1000,
     config = function()
-      vim.opt.background = 'dark'
-      vim.g.enfocado_style = "nature"
-      vim.cmd [[ colorscheme enfocado ]]
-    end
+      --vim.cmd [[ colorscheme moonfly ]]
+    end,
+  },
+  {
+    "sainnhe/sonokai",
+    name = "sonokai",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd [[ colorscheme sonokai ]]
+    end,
+  },
+  {
+    "shaunsingh/seoul256.nvim",
+    enabled = false,
+    priority = 1000,
+    config = function()
+      vim.g.seoul256_italic_comments = true
+      vim.g.seoul256_italic_keywords = true
+      vim.g.seoul256_italic_functions = false
+      vim.g.seoul256_italic_variables = false
+      vim.g.seoul256_contrast = true
+      vim.g.seoul256_borders = true
+      vim.g.seoul256_disable_background = false
+      vim.g.seoul256_hl_current_line = true
+
+      --require('seoul256')
+    end,
   },
   {
     'stevearc/dressing.nvim'

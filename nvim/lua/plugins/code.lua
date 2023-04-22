@@ -7,10 +7,18 @@ return {
     config = function()
       require('nvim-treesitter.configs').setup({
         ensure_installed = { 'c_sharp', 'lua', 'javascript', 'json', 'json5', 'typescript' },
+        indent = {
+          enable = true,
+        },
+        incremental_selection = {
+          enable = true,
+        },
+        highlight = {
+          enable = true,
+        },
       })
     end
   },
-
 
   {
     'neovim/nvim-lspconfig',
@@ -20,6 +28,11 @@ return {
       'hrsh7th/nvim-cmp',
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-nvim-lsp',
+      {
+        "L3MON4D3/LuaSnip",
+        build = "make install_jsregexp"
+      },
+      'saadparwaiz1/cmp_luasnip'
     },
     config = function()
       local cmp = require('cmp')
@@ -45,6 +58,7 @@ return {
         sources = cmp.config.sources({
           { name = 'nvim_lua' },
           { name = 'nvim_lsp' },
+          { name = 'luasnip' }
         })
       })
 
@@ -62,19 +76,46 @@ return {
         vim.keymap.set('n', '<leader>;', vim.lsp.buf.code_action, bufopts)
       end
 
-      require('mason-lspconfig').setup({
+      local mlsp = require('mason-lspconfig')
+      local lspconfig = require('lspconfig')
+
+      mlsp.setup({
         ensure_installed = { "lua_ls", "omnisharp" }
       })
 
-      require('mason-lspconfig').setup_handlers({
+      mlsp.setup_handlers({
         function (server_name)
-          require('lspconfig')[server_name].setup({
+          lspconfig[server_name].setup({
             capabilities = require('cmp_nvim_lsp').default_capabilities(),
             on_attach = on_attach,
             flags = {
               debounce_text_changes = 150
             }
           })
+        end,
+        ['omnisharp'] = function() 
+          lspconfig.omnisharp.setup({
+            --cmd = { "C:/Users/bakkenl/scoop/shims/OmniSharp.exe", "--languageserver", "--hostPID", tostring(pid) },
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            --root_dir = lspcfg_util.find_git_ancestor,
+            on_attach = function (client, bufnr)
+              -- https://github.com/OmniSharp/omnisharp-roslyn/issues/2483#issuecomment-1492605642
+              local tokenModifiers = client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
+              for i, v in ipairs(tokenModifiers) do
+                local tmp = string.gsub(v, ' ', '_')
+                tokenModifiers[i] = string.gsub(tmp, '-_', '')
+              end
+              local tokenTypes = client.server_capabilities.semanticTokensProvider.legend.tokenTypes
+              for i, v in ipairs(tokenTypes) do
+                local tmp = string.gsub(v, ' ', '_')
+                tokenTypes[i] = string.gsub(tmp, '-_', '')
+              end
+              on_attach(client, bufnr)
+            end,
+            flags = {
+              debounce_text_changes = 150,
+            }
+        })
         end
       })
     end,
