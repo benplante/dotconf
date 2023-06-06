@@ -1,0 +1,12 @@
+theme = 'penumbra+'
+
+[editor]
+line-number = 'relative'
+mouse = true
+true-color = true
+color-modes = true
+
+[editor.cursor-shape]
+normal = 'block'
+insert = 'bar'
+select = 'underline'
