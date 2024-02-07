@@ -2,7 +2,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = function()
-      require('nvim-treesitter.install').update({ with_sync = true })
+      require('nvim-treesitter.install').update({ with_sync = false })
     end,
     config = function()
       require('nvim-treesitter.configs').setup({
@@ -80,7 +80,7 @@ return {
       local lspconfig = require('lspconfig')
 
       mlsp.setup({
-        ensure_installed = { "lua_ls", "omnisharp" }
+        ensure_installed = { "lua_ls", "omnisharp", "gopls", "angularls" }
       })
 
       mlsp.setup_handlers({
@@ -93,7 +93,7 @@ return {
             }
           })
         end,
-        ['omnisharp'] = function() 
+        ['omnisharp'] = function()
           lspconfig.omnisharp.setup({
             --cmd = { "C:/Users/bakkenl/scoop/shims/OmniSharp.exe", "--languageserver", "--hostPID", tostring(pid) },
             capabilities = require('cmp_nvim_lsp').default_capabilities(),

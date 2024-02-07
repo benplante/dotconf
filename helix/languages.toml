@@ -1,3 +1,13 @@
 [[language]]
 name = "c-sharp"
-language-server.command = "omnisharp"
+language-servers = ["omnisharp"]
+
+[[language]]
+name = "go"
+
+[[language]]
+name = "haskell"
+
+[language-server.omnisharp]
+command = "/Users/benpl/.omnisharp/OmniSharp"
+args = ["--languageserver"]

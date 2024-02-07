@@ -19,7 +19,7 @@ local options = {
   magic           =       true,
 
   errorbells      =       false,
-  visualbell      =       true,
+  visualbell      =       false,
   timeout         =       true,
   timeoutlen      =       500,
   termguicolors   =       true,
@@ -75,8 +75,4 @@ set('opt', options)
 
 vim.cmd [[abbr cosnt const]]
 vim.cmd [[abbr pubic public]]
-vim.cmd [[abbr _lp LBMX.Phoenix]]
-vim.cmd [[abbr _ld LBMX.Phoenix.Data]]
-vim.cmd [[abbr _ls LBMX.Phoenix.Services]]
-vim.cmd [[abbr _la LBMX.Phoenix.API]]
 vim.cmd [[autocmd VimLeavePre * LspStop]]

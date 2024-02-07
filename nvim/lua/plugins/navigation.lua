@@ -1,7 +1,8 @@
 return {
   {
-    'benplante/neo-tree.nvim',
+    'nvim-neo-tree/neo-tree.nvim',
     --dev = true,
+    --tag = '3.16',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-web-devicons',
@@ -30,7 +31,11 @@ return {
       },
       filesystem = {
         bind_to_cwd = false,
-        follow_current_file = true,
+        hide_by_name = { "node_modules" },
+        follow_current_file = {
+          enabled = true,
+          leave_dirs_open = true
+        },
         use_libuv_file_watcher = true,
       }
     }
@@ -39,21 +44,20 @@ return {
 
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
+    tag = '0.1.5',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
       'nvim-telescope/telescope-frecency.nvim',
-      'kkharji/sqlite.lua',
       'nvim-telescope/telescope-fzy-native.nvim',
       'nvim-telescope/telescope-ui-select.nvim',
     },
     cmd = 'Telescope',
     keys = {
       { "-", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
+      { "<leader><leader>", "<CMD>Telescope frecency<CR>", desc = "Frecent Files" },
       { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
       { "<leader>f/", "<CMD>Telescope live_grep<CR>", desc = "Grep in Files" },
-      { "<leader>fr", "<CMD>Telescope frecency<CR>", desc = "Frecent Files" },
       { "<leader>fo", "<CMD>Telescope buffers show_all_buffers=true<CR>", desc = "Switch Buffers" },
       { "<leader>fg", "<CMD>Telescope git_files<CR>", desc = "Repository Files" },
       { "<leader>//", "<CMD>Telescope grep_string<CR>", desc = "Find string in Files" },
@@ -67,14 +71,6 @@ return {
     config = function()
       local telescope = require('telescope')
       local actions = require('telescope.actions')
-
-      telescope.load_extension('fzy_native')
-      telescope.load_extension('frecency')
-      telescope.load_extension("ui-select")
-
-      if vim.loop.os_uname().sysname == "Windows_NT" then
-        vim.g.sqlite_clib_path = vim.fn.expand("$USERPROFILE") .. "\\.sqlite3\\sqlite3.dll"
-      end
 
       telescope.setup({
         defaults = {
@@ -90,9 +86,19 @@ return {
           fzy_native = {
             override_generic_sorter = false,
             override_file_sorter = true,
+          },
+          frecency = {
+            workspaces = {
+              ["src"] = "/Users/benpl/src",
+              ["conf"] = "/Users/benpl/.config"
+            }
           }
         }
       })
+
+      telescope.load_extension('fzy_native')
+      telescope.load_extension('frecency')
+      telescope.load_extension("ui-select")
     end
   },
 }
