@@ -1,4 +1,5 @@
-require('benpl.options')
+require("benpl.options")
+require("benpl.mappings")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -13,15 +14,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
-require('lazy').setup('plugins', {
+require("lazy").setup("benpl/plugins", {
   dev = {
-    path = '~/src'
+    path = "~/src"
   }
 })
---require('benpl.packer')
---require('benpl.mappings')
---require('benpl.statusline')
 
+vim.cmd [[colorscheme everforest]]

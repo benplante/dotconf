@@ -1,21 +1,33 @@
 return {
   {
-    "nyoom-engineering/oxocarbon.nvim",
+    "neanias/everforest-nvim",
+    main = "everforest",
+    lazy = true,
     priority = 1000,
+    opts = { }
   },
   {
-    "folke/tokyonight.nvim"
+    "nyoom-engineering/oxocarbon.nvim",
+    lazy = true,
+    priority = 1000
+    --config = function() vim.cmd [[colorscheme oxocarbon]] end
+  },
+  {
+    "folke/tokyonight.nvim",
+    priority = 1000,
+    lazy = true
   },
   {
     "folke/zen-mode.nvim",
+    lazy = true,
     dependencies = {
       "folke/twilight.nvim"
     },
     keys = {
-      { "<leader>z", function() require('zen-mode').toggle() end, desc = 'Zen Mode' }
+      { "<leader>z", function() require("zen-mode").toggle() end, desc = "Zen Mode" }
     },
     config = function()
-      require('zen-mode').setup({
+      require("zen-mode").setup({
         plugins = {
           kitty = {
             enabled = true,
@@ -23,30 +35,27 @@ return {
           }
         }
       })
-      require('twilight').setup()
+      require("twilight").setup()
     end
   },
   {
     "bluz71/vim-moonfly-colors",
     name = "moonfly",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
-      --vim.cmd [[ colorscheme moonfly ]]
+--      vim.cmd [[ colorscheme moonfly ]]
     end,
   },
   {
     "sainnhe/sonokai",
     name = "sonokai",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd [[ colorscheme sonokai ]]
-    end,
+    lazy = true,
+    priority = 1000
   },
   {
     "shaunsingh/seoul256.nvim",
-    enabled = false,
+    lazy = true,
     priority = 1000,
     config = function()
       vim.g.seoul256_italic_comments = true
@@ -58,10 +67,22 @@ return {
       vim.g.seoul256_disable_background = false
       vim.g.seoul256_hl_current_line = true
 
-      --require('seoul256')
+      --require("seoul256")
     end,
   },
   {
-    'stevearc/dressing.nvim'
+    "stevearc/dressing.nvim",
+    event = "VeryLazy"
+  },
+  {
+    "j-hui/fidget.nvim",
+    event = "VeryLazy",
+    opts = { }
+  },
+  {
+    "akinsho/bufferline.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    version = "*",
+    opts = { }
   }
 }

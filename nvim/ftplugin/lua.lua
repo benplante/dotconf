@@ -1,4 +1,4 @@
-local set = require('benpl.util').set_options
+local set = require('benpl.utils').set_options
 
 local options = {
   tabstop = 2,

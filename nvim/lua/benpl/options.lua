@@ -1,4 +1,4 @@
-local set = require('benpl.util').set_options
+local set = require('benpl.utils').set_options
 
 local options = {
   backup          =       false,
@@ -10,7 +10,7 @@ local options = {
   hidden          =       true,
   fileencoding    =       'utf-8',
   clipboard       =       'unnamedplus',
-  shell           =       '/bin/bash',
+  --shell           =       '/bin/bash',
 
   ignorecase      =       true,
   smartcase       =       true,
@@ -68,10 +68,13 @@ local options = {
   softtabstop     =       2,
   shiftwidth      =       2,
 
-  guifont         =       'Liga SFMono Nerd Font',
+  guifont         =       'CommitMonobencmt Nerd Font',
 }
 
 set('opt', options)
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 vim.cmd [[abbr cosnt const]]
 vim.cmd [[abbr pubic public]]
