@@ -8,9 +8,6 @@ return {
     'MunifTanjim/nui.nvim'
   },
   cmd = "Neotree",
-  keys = {
-    { "_", "<CMD>Neotree reveal current toggle<CR>",  desc = 'NeoTree Files' }
-  },
   deactivate = function()
     vim.cmd [[ Neotree close ]]
   end,

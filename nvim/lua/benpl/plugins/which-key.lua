@@ -2,10 +2,8 @@ return {
   "folke/which-key.nvim",
   event  = "VeryLazy",
   opts = {
-    plugins = {
-      presets = {
-        windows = true
-      }
+    icons = {
+      group = ""
     },
     disable = {
       filetypes = { "TelescopePrompt" }

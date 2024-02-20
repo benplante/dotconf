@@ -10,7 +10,11 @@ return {
       "L3MON4D3/LuaSnip",
       build = "make install_jsregexp"
     },
-    'saadparwaiz1/cmp_luasnip'
+    'saadparwaiz1/cmp_luasnip',
+    {
+      "joeveiga/ng.nvim",
+      lazy = true
+    }
   },
   event = { "BufReadPost", "BufNewFile" },
   cmd = { "LspInfo", "LspInstall", "LspUninstall" },
@@ -42,49 +46,38 @@ return {
       })
     })
 
-    local on_attach = function(client, bufnr)
-      vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-      local bufopts = { noremap = true, silent = true, buffer = bufnr }
-      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, vim.tbl_extend(bufopts, { desc = 'Declaration' }))
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-      vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, bufopts)
-      vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-      vim.keymap.set('n', ';', vim.lsp.buf.hover, bufopts)
-      vim.keymap.set('n', '<A-;>', vim.lsp.buf.signature_help, bufopts)
-      vim.keymap.set('n', 'cr', vim.lsp.buf.rename, bufopts)
-      vim.keymap.set('n', '<leader>;', vim.lsp.buf.code_action, bufopts)
-    end
-
     local mlsp = require('mason-lspconfig')
     local lspconfig = require('lspconfig')
+    local lspUtils = require("benpl.utils.lsp")
 
     mlsp.setup({
       ensure_installed = { "lua_ls", "omnisharp", "gopls", "angularls" }
     })
 
     mlsp.setup_handlers({
-      function (server_name)
-        lspconfig[server_name].setup({
-          capabilities = require('cmp_nvim_lsp').default_capabilities(),
+      function(server_name) lspconfig[server_name].setup(lspUtils.config(server_name)) end,
+      ['angularls'] = function()
+        local ng = require("ng")
+
+        local on_attach = function(client, bufnr)
+          local utils = require("benpl.utils")
+          local maps = utils.empty_map_table()
+
+          maps.n["<leader>lc"] = { function() ng.goto_template_for_component() end, desc = "Angular template" }
+          maps.n["<leader>lC"] = { function() ng.goto_component_with_template_file() end, desc = "Angular component" }
+
+          utils.set_mappings(maps, { buffer = bufnr })
+          lspUtils.on_attach(client, bufnr)
+        end
+        lspconfig.angularls.setup({
           on_attach = on_attach,
-          flags = {
-            debounce_text_changes = 150
-          }
+          capabilities = lspUtils.capabilities,
+          flags = lspUtils.flags
         })
-      end,
-      ['omnisharp'] = function()
-        lspconfig.omnisharp.setup({
-          --cmd = { "C:/Users/bakkenl/scoop/shims/OmniSharp.exe", "--languageserver", "--hostPID", tostring(pid) },
-          capabilities = require('cmp_nvim_lsp').default_capabilities(),
-          --root_dir = lspcfg_util.find_git_ancestor,
-          flags = {
-            debounce_text_changes = 150,
-          }
-        })
+
       end
     })
-  end,
+  end
 }
 
 

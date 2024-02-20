@@ -43,14 +43,11 @@ maps.n["<esc>"] = { "<cmd>noh<cr>", desc = "Disable search highlight" }
 maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical split" }
 maps.n["\\"] = { "<cmd>split<cr>", desc = "Horizontal split" }
 
--- Shift tabs with h/l, buffers with j/k
 maps.n["<A-n>"] = { "<cmd>tabnew<cr>" }
 maps.n["<A-w>"] = { "<cmd>tabclose<cr>" }
 maps.n["<A-q>"] = { "<cmd>tabonly<cr>" }
 maps.n["<A-h>"] = { "<cmd>tabprevious<cr>" }
 maps.n["<A-l>"] = { "<cmd>tabnext<cr>" }
-maps.n["<A-]>"] = { "<cmd>bnext<cr>" }
-maps.n["<A-[>"] = { "<cmd>bprevious<cr>" }
 
 maps.n["<leader>p"] = { desc = "󰏖 Packages" }
 maps.n["<leader>pi"] = { function() require("lazy").install() end, desc = "Plugins Install" }
@@ -60,20 +57,22 @@ maps.n["<leader>pu"] = { function() require("lazy").check() end, desc = "Plugins
 maps.n["<leader>pU"] = { function() require("lazy").update() end, desc = "Plugins Update" }
 maps.n["<leader>pp"] = { function() require("lazy").profile() end, desc = "Profile startup" }
 
-maps.n["<leader>c"] = { function() require("benpl.utils.buffer").close() end, desc = "Close buffer" }
-maps.n["<leader>C"] = { function() require("benpl.utils.buffer").close(0, true) end, desc = "Force close buffer" }
-maps.n["]b"] = { function() require("benpl.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" }
-maps.n["[b"] = { function() require("benpl.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Next buffer" }
+maps.n["<A-]>"] = { "<cmd>bnext<cr>" }
+maps.n["<A-[>"] = { "<cmd>bprevious<cr>" }
+maps.n["<leader>c"] = { "<cmd>bd<cr>", desc = "Close buffer" }
+maps.n["<leader>C"] = { "<cmd>bd!<cr>", desc = "Force close buffer" }
 
 maps.n["-"] = { "<cmd>Telescope find_files<cr>", desc = "Find files" }
+maps.n["<leader>f"] = { desc = " Find" }
 maps.n["<leader>ff"] = { "<cmd>Telescope git_files<cr>", desc = "Git files" }
 maps.n["<leader>fr"] = { "<cmd>Telescope frecency<cr>", desc = "Frecent files" }
 maps.n["<leader>fw"] = { "<cmd>Telescope grep_string<cr>", desc = "Find word" }
 maps.n["<leader>fo"] = { "<cmd>Telescope buffers<cr>", desc = "Switch open buffers" }
 maps.n["<leader>ft"] = { "<cmd>Telescope colorschemes<cr>", desc = "Switch colorschemes" }
 
---maps.n["_"] = { "<cmd>Oil<cr>", desc = "Oil" }
-maps.n["_"] = {function() require("mini.files").open() end, desc = "Mini" }
+maps.n["_"] = { "<cmd>Oil<cr>", desc = "Oil" }
+--maps.n["_"] = {function() require("mini.files").open() end, desc = "Mini" }
+--maps.n["_"] = { "<cmd>Neotree current reveal toggle<cr>", desc = "File tree" }
 
 maps.n["<leader><leader>"] = { function() require("harpoon.ui").toggle_quick_menu() end, desc = "Harpoon quick menu" }
 maps.n["<leader>a"] = { function() require("harpoon.mark").add_file() end, desc = "Add to harpoon" }
