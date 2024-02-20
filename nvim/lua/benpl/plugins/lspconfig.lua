@@ -16,6 +16,7 @@ return {
       lazy = true
     }
   },
+  --event = { "VeryLazy" },
   event = { "BufReadPost", "BufNewFile" },
   cmd = { "LspInfo", "LspInstall", "LspUninstall" },
   config = function()
@@ -57,12 +58,13 @@ return {
     mlsp.setup_handlers({
       function(server_name) lspconfig[server_name].setup(lspUtils.config(server_name)) end,
       ['angularls'] = function()
-        local ng = require("ng")
 
         local on_attach = function(client, bufnr)
+          local ng = require("ng")
           local utils = require("benpl.utils")
           local maps = utils.empty_map_table()
 
+          maps.n["<leader>lb"] = { function() ng.get_template_tcb() end, desc = "Template tcb" }
           maps.n["<leader>lc"] = { function() ng.goto_template_for_component() end, desc = "Angular template" }
           maps.n["<leader>lC"] = { function() ng.goto_component_with_template_file() end, desc = "Angular component" }
 

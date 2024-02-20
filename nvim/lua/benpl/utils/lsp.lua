@@ -16,10 +16,6 @@ local tbl_isempty = vim.tbl_isempty
 local utils = require "benpl.utils"
 local is_available = utils.is_available
 
-local setup_handlers = function(server, opts)
-  require("lspconfig")[server].setup(opts)
-end
-
 
 M.setup_diagnostics = function(signs)
   local diagnostics = {
